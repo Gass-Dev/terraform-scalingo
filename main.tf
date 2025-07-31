@@ -13,7 +13,6 @@ provider "scalingo" {
 
 resource "scalingo_app" "portfolio" {
   name = "portfolio-po"
-  region = "osc-fr1"
 }
 
 output "app_url" {
