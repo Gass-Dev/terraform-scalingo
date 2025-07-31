@@ -1,20 +1,18 @@
 terraform {
   required_providers {
     scalingo = {
-      source  = "Scalingo/scalingo"
-      version = "~> 2.3"
+      source  = "scalingo/scalingo"
+      version = "~> 2.4"
     }
   }
 }
 
 provider "scalingo" {
-  api_token = var.scalingo_token
+  token = var.scalingo_token
 }
 
-resource "scalingo_app" "portfolio" {
-  name = "portfolio-po"
-}
-
-output "app_url" {
-  value = scalingo_app.portfolio.url
+resource "scalingo_app" "portfolioapp" {
+  name      = "portfolioapp"
+  region    = "osc-fr1"
+  buildpack = "https://github.com/heroku/heroku-buildpack-static.git"
 }
